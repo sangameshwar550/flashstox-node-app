@@ -15,6 +15,7 @@ app.use(
       "http://localhost:3000",
       process.env.FRONTEND_URL,
       "https://orders.flashstox.com",
+      "https://insights.flashstox.com",
     ].filter(Boolean),
   }),
 );
