@@ -9,10 +9,25 @@ const dashboardRouter = require("./routes/dashboard");
 const app = express();
 const PORT = process.env.PORT || 8081;
 
-app.use(cors({ origin: ["http://localhost:3000", process.env.FRONTEND_URL].filter(Boolean) }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      process.env.FRONTEND_URL,
+      "https://orders.flashstox.com",
+    ].filter(Boolean),
+  }),
+);
 
 function log(level, message, data = {}) {
-  console.log(JSON.stringify({ timestamp: new Date().toISOString(), level, message, ...data }));
+  console.log(
+    JSON.stringify({
+      timestamp: new Date().toISOString(),
+      level,
+      message,
+      ...data,
+    }),
+  );
 }
 
 app.use((req, _res, next) => {
